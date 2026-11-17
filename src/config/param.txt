@@ -1,0 +1,5 @@
+link_prefix=demch.ru/
+link_length=6
+
+limit_restriction=4
+limit_lifetime_minute=20
