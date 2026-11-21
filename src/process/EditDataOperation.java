@@ -16,6 +16,10 @@ import java.util.UUID;
 import static java.util.Objects.isNull;
 import static process.Strategy.*;
 
+/**
+ * Класс, содержащий логику редактирования данных пользователя
+ */
+
 public class EditDataOperation implements RootOperational {
     private final UUID uuid;
 

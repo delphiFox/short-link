@@ -5,6 +5,10 @@ import data.Store;
 
 import java.util.UUID;
 
+/**
+ * При редактировании данных пользователя изменяет наименование длинной ссылки
+ */
+
 public class LinkNameEditOperation extends BaseLinkOperation implements Editable {
     private final String newUrl;
 

@@ -8,6 +8,11 @@ import java.util.UUID;
 import static process.Editable.*;
 import static process.RootOperational.*;
 
+/**
+ * Реализация паттерна Стратегия для процессов
+ * создания и редактирования ссылки
+ */
+
 public class Strategy {
     public static RootOperational start(String message) throws OperationException {
         if (messageIsLink(message))

@@ -11,6 +11,10 @@ import java.time.Duration;
 import java.time.LocalDateTime;
 import java.util.*;
 
+/**
+ * Статическое хранилище в структуре Map, прямой доступ к которому запрещен
+ */
+
 public class Store {
     private static String linkPrefix;
     private static int linkLength;

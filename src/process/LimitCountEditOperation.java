@@ -5,6 +5,10 @@ import data.Store;
 
 import java.util.UUID;
 
+/**
+ * При редактировании данных пользователя изменяет значение лимита переходов по короткой ссылке
+ */
+
 public class LimitCountEditOperation extends BaseLinkOperation implements Editable {
     private final int newLimit;
 
