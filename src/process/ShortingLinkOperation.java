@@ -9,6 +9,10 @@ import java.util.UUID;
 
 import static java.util.Objects.isNull;
 
+/**
+ * Класс, содержащий логику создания короткой ссылки
+ */
+
 public class ShortingLinkOperation implements RootOperational {
     private final String url;
     private final int limit;

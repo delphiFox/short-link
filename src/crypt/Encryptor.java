@@ -10,7 +10,7 @@ import java.security.NoSuchAlgorithmException;
 /**
  * Вычисляем SHA-256 от входной строки
  * Кодируем дайджест в символы заданного алфавита, получаем первые X символов
- * Если полученный код совпал с существующим (коллизия), добавляем [#+i] и кодируем снова
+ * Если полученный код совпал с существующим (коллизия), добавляем #+i и кодируем снова
  */
 
 public class Encryptor {
@@ -32,8 +32,8 @@ public class Encryptor {
 
     private static byte[] hash(String input) {
         try {
-            MessageDigest digest = MessageDigest.getInstance("SHA-256");
-            return digest.digest(input.getBytes(StandardCharsets.UTF_8));
+            MessageDigest md = MessageDigest.getInstance("SHA-256");
+            return md.digest(input.getBytes(StandardCharsets.UTF_8));
         } catch (NoSuchAlgorithmException e) {
             throw new IllegalStateException("Не верно указан алгоритм", e);
         }

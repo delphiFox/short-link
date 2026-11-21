@@ -8,6 +8,11 @@ import java.util.UUID;
 import static process.Editable.*;
 import static process.RootOperational.*;
 
+/**
+ * Реализация паттерна Стратегия для процессов
+ * создания и редактирования ссылки
+ */
+
 public class Strategy {
     public static RootOperational start(String message) throws OperationException {
         if (messageIsLink(message))
@@ -15,7 +20,7 @@ public class Strategy {
         else if (messageIsUuid(message))
             return new EditDataOperation(message);
 
-        throw new OperationException("Не удалось обработать сообщение");
+        throw new OperationException("Не удалось обработать сообщение, введите данные снова или q для завершения");
     }
 
     public static boolean linkForAdded(String message) {
@@ -38,6 +43,6 @@ public class Strategy {
         else if (messageIsDeleteLink(message))
             return new LinkDeleteOperation(uuid, link);
 
-        throw new OperationException("Не удалось обработать сообщение");
+        throw new OperationException("Не удалось обработать сообщение (работа завершена)");
     }
 }
