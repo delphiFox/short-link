@@ -20,7 +20,7 @@ public class Strategy {
         else if (messageIsUuid(message))
             return new EditDataOperation(message);
 
-        throw new OperationException("Не удалось обработать сообщение");
+        throw new OperationException("Не удалось обработать сообщение, введите данные снова или q для завершения");
     }
 
     public static boolean linkForAdded(String message) {
@@ -43,6 +43,6 @@ public class Strategy {
         else if (messageIsDeleteLink(message))
             return new LinkDeleteOperation(uuid, link);
 
-        throw new OperationException("Не удалось обработать сообщение");
+        throw new OperationException("Не удалось обработать сообщение (работа завершена)");
     }
 }

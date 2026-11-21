@@ -36,15 +36,19 @@ public class EditDataOperation implements RootOperational {
         System.out.printf("Ссылки пользователя %s:%n", uuid);
         userLinkData.forEach(u -> System.out.println("- " + u.getUrl() + " | " + u.getShortUrl() + " | Ограничение переходов: " + u.getLimitRestriction()));
 
-        System.out.print("Введите ссылку для добавления, короткую ссылку для перехода по ней или кодированное значение короткой ссылки для её редактирования (символы после '/'): ");
+        System.out.println("Введите ссылку для добавления, короткую ссылку для перехода по ней или кодированное значение короткой ссылки для её редактирования (символы после '/')");
+        System.out.println("[ Для завершения работы введите 'q' ]");
 
         try (var sc = new Scanner(System.in)) {
             if (sc.hasNext()) {
                 String value = sc.nextLine();
+                if ("q".equals(value))
+                    return;
+
                 if (linkForAdded(value)) {
                     boolean validateSuccess = RootOperational.messageIsLink(value);
                     if (!validateSuccess)
-                        throw new OperationException("Не удалось обработать ссылку для добавления");
+                        throw new OperationException("Не удалось обработать ссылку для добавления (работа завершена)");
                     RootOperational createShortLink = new ShortingLinkOperation(value, this.uuid);
                     createShortLink.runAction();
                 } else if (linkForClick(value)) {
