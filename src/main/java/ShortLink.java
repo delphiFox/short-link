@@ -20,15 +20,13 @@ public class ShortLink {
         System.out.println("*** Введите URL для его сокращения с числом переходов через пробел,\n*** или UUID (логин) для управления своими ссылками и нажмите Enter");
 
         try (var sc = new Scanner(System.in)) {
-            while (sc.hasNext()) {
-                String message = sc.nextLine();
-                if ("q".equals(message))
-                    return;
-                try {
-                    Strategy.start(message).runAction();
-                } catch (OperationException e) {
-                    System.err.println(e.getLocalizedMessage());
-                }
+            String message = sc.nextLine();
+            if ("q".equals(message))
+                return;
+            try {
+                Strategy.start(message).runAction();
+            } catch (OperationException e) {
+                System.err.println(e.getLocalizedMessage());
             }
         } finally {
             deletingScheduler.stop();
