@@ -17,7 +17,7 @@ public class Encryptor {
     private static final String ALPHABET = "0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz";
 
     public static String encrypt(String stringEncoding) {
-        for (int i = 0; i <= 10; i++) {
+        for (int i = 0; i <= 20; i++) {
             if (i > 0)
                 stringEncoding = stringEncoding.concat("#") + i;
             byte[] sha256FromUrl = hash(stringEncoding);
