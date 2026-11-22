@@ -110,7 +110,7 @@ public class Store {
 
     public static void initParams() {
         try {
-            Files.readAllLines(Paths.get("src/config/param.txt"), StandardCharsets.UTF_8).forEach(e -> {
+            Files.readAllLines(Paths.get("src/main/resources/param.txt"), StandardCharsets.UTF_8).forEach(e -> {
                 String[] param = e.split("=");
                 if ("link_prefix".equals(param[0]))
                     linkPrefix = param[1];
@@ -129,7 +129,7 @@ public class Store {
 
     private static String readFileStore() {
         try {
-            return Files.readString(Paths.get("src/data/file_store.json"));
+            return Files.readString(Paths.get("src/main/resources/file_store.json"));
         } catch (IOException e) {
             System.err.println(e.getMessage());
             throw new RuntimeException();
@@ -138,7 +138,7 @@ public class Store {
 
     private static void writeFileStore(String str) {
         try {
-            Files.writeString(Paths.get("src/data/file_store.json"), str);
+            Files.writeString(Paths.get("src/main/resources/file_store.json"), str);
         } catch (IOException e) {
             System.err.println(e.getMessage());
             throw new RuntimeException();
@@ -220,4 +220,6 @@ public class Store {
         updateFileStore();
         System.out.println("Ссылка удалена");
     }
+
+
 }
